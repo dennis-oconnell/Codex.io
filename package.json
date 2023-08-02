@@ -16,7 +16,5 @@
     "url": "https://github.com/dennis-oconnell/codex-browser/issues"
   },
   "homepage": "https://github.com/dennis-oconnell/codex-browser#readme",
-  "dependencies": {
-    "epubjs": "^0.3.93"
-  }
+  "dependencies": {}
 }
