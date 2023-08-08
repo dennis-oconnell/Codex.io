@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <div id="imageGallery"></div>
+
+    <script>
+        const imageGallery = document.getElementById('imageGallery');
+
+        // Define the path to your image folder
+        const imageFolderPath = 'C:\Users\docon\Documents\Github\codex-browser\aeneid_images';
+
+        // Read the directory contents using the File API
+        async function readDirectory() {
+            try {
+                const entries = await window.showDirectoryPicker({ startIn: 'aeneid_images' }); // Select the folder using the browser's file picker
+                for await (const entry of entries.values()) {
+                    if (entry.kind === 'file' && entry.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = URL.createObjectURL(await entry.getFile());
+                        imageGallery.appendChild(imgElement);
+                    }
+                }
+            } catch (error) {
+                console.error('Error reading directory:', error);
+            }
+        }
+
+        // Call the function to read and display images
+        readDirectory();
+    </script>
+</body>
+</html>

@@ -37,6 +37,21 @@
 
     <img id="myImage" src="tester_img.jpg" alt="Your Image">
 
+    <div id="imageGallery"></div>
+
+    <script>
+        fetch('C:\Users\docon\Documents\Github\codex-browser\aeneid_images') // Replace with the appropriate endpoint URL
+        .then(response => response.json())
+        .then(data => {
+            const imageGallery = document.getElementById('imageGallery');
+            data.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = `/${aeneid_images}`; // Use the relative path to the image files
+                imageGallery.appendChild(imgElement);
+            });
+        })
+        .catch(error => console.error('Error fetching images:', error));
+    </script>
 
 
 
