@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
 </head>
 <body>
-    <div id="imageGallery"></div>
 
-    <script>
-        const imageGallery = document.getElementById('imageGallery');
+    <div class="gallery">
+        <!-- Images will be added here dynamically -->
+    </div>
 
-        // Define the path to your image folder
-        const imageFolderPath = 'C:\Users\docon\Documents\Github\codex-browser\aeneid_images';
-
-        // Read the directory contents using the File API
-        async function readDirectory() {
-            try {
-                const entries = await window.showDirectoryPicker({ startIn: 'aeneid_images' }); // Select the folder using the browser's file picker
-                for await (const entry of entries.values()) {
-                    if (entry.kind === 'file' && entry.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
-                        const imgElement = document.createElement('img');
-                        imgElement.src = URL.createObjectURL(await entry.getFile());
-                        imageGallery.appendChild(imgElement);
-                    }
-                }
-            } catch (error) {
-                console.error('Error reading directory:', error);
-            }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
         }
 
-        // Call the function to read and display images
-        readDirectory();
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 100px;
+            padding: 20px;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.querySelector(".gallery");
+
+        for (let i = 2; i <= 305; i++) {
+            const img = document.createElement("img");
+            img.src = `aeneid_images/430d7a8a8b6816106a9c04275772583b-${i}.jpg`;
+            gallery.appendChild(img);
+            }
+        });
+
     </script>
+
 </body>
 </html>
