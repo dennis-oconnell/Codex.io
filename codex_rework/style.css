@@ -2,7 +2,7 @@
 body{
     background-color: rgb(234,234,234);
     font-family: 'Cormorant Garamond', sans-serif;
-    color: #212529;
+    color: rgb(140, 21, 21);
 }
 
 .btn-primary{
@@ -49,6 +49,13 @@ body{
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: .2rem;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 /*---HOME LIBRARY PAGE---*/
