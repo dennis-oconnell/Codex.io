@@ -19,6 +19,18 @@ body{
     transition: 0.3s;
 }
 
+.btn-primary:hover{
+    background-color: rgb(184,58,75);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    
+}
+
+.btn-primary:onclick{
+    text-emphasis: bold;
+}
+
+
 
 
 /*---LANDING PAGE---*/
@@ -59,20 +71,51 @@ body{
 }
 
 /*---HOME LIBRARY PAGE---*/
-.library-container {
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    background-color: rgb(184,58,75);
+    color: white;
+}
+
+.navbar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.navbar-logo img {
+    width: 25px;
+    height: 25px;
+    margin-right: 1rem;
+}
+
+
+.home-container {
 	display: flex;
 }
 
-.library-sidebar {
-	flex-grow: 1;
-	align-self: stretch;
+.home-sidebar {
+    flex-direction: column;
+    font-size:1rem;
+    flex-grow: 1;
 }
 
-.library-book-gallery {
-	flex-grow: 6;
-	align-self: stretch;
+.home-gallery {
+    display: flex;
+    font-size:.75rem;
+    height:80vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(20px + 10%);
+    padding: 20px;
+    overflow-y: scroll;
+    background-color: aliceblue;
 }
-
 
 
 /*---TEXT READER PAGE---*/
