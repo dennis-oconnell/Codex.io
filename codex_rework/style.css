@@ -74,7 +74,7 @@ body{
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     background-color: rgb(184,58,75);
     color: white;
 }
@@ -86,12 +86,20 @@ body{
     margin-left: 1rem;
     font-size: .75rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .navbar-logo img {
     width: 25px;
     height: 25px;
     margin-right: 1rem;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+    font-weight: 700;
 }
 
 
@@ -145,6 +153,7 @@ sidebar-item:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     transition: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
