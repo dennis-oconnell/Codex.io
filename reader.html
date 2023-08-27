@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Title-->
+    <title>Codex Reader: Learn and Read Ancient Languages</title>
+    
+    <!--Icon-->
+    <link rel = "icon" href = "resources/book.png" type = "image/x-icon">
+
+    <!--Google Fonts, Cormorant Garamond-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+
+    <!--Styles-->
+    <link rel="stylesheet" href="style.css">
+
+    
+
+     <!-- Tesseract.js library -->    <!-- v4 -->
+     <script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>
+    
+  </head>
+
+  <body>
+    <!--Javascript-->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          //load images from folder
+          const gallery = document.querySelector(".gallery");
+
+          for (let i = 2; i <= 305; i++) {
+              const img = document.createElement("img");
+              img.src = `aeneid_images/430d7a8a8b6816106a9c04275772583b-${i}.jpg`;
+              gallery.appendChild(img);
+              }
+          
+
+          //recognize text using Tesseract
+          const image = document.getElementById('img'); // Replace with the ID of your image element
+
+          Tesseract.recognize(
+          image,
+          'lat', // Language code for Latin.
+          {
+              logger: info => console.log(info.progress, info.status), // Optional logger function
+          }
+          ).then(({ data: { text } }) => {
+          console.log('Recognized Text:', text);
+          // Do whatever you want with the recognized text
+          }).catch(err => {
+          console.error('Error:', err);
+          });
+
+      });
+  </script> 
+     <h1>Cicero</h1>
+     <div class="gallery">
+      <!-- Images will be added here dynamically -->
+  </div>
+        
+  </body>
+
+</html>
