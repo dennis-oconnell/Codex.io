@@ -1,4 +1,5 @@
 /*---LANDING PAGE---*/
+
 .landing-container{
     display: flex;
     flex-direction: column;
@@ -9,7 +10,7 @@
 }
 
 .landing-heading{
-    color: rgb(140, 21, 21);
+    color: white;
     font-size: 5rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -22,7 +23,7 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 .subtitle{
-    color: rgb(184,58,75);
+    color: white;
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: .2rem;
