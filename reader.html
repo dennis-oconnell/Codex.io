@@ -35,14 +35,16 @@
 				//load images from folder
 				const gallery = document.querySelector(".gallery");
 
-				for (let i = 2; i <= 305; i++) {
+				for (let i = 3; i <= 3; i++) {
 					const img = document.createElement("img");
+					const uniqueId = "image_" + i;
+					img.id = uniqueId;
 					img.src = `resources/aeneid_images/430d7a8a8b6816106a9c04275772583b-${i}.jpg`;
 					gallery.appendChild(img);
 				}
 
 				//recognize text using Tesseract
-				const image = document.getElementById("img"); // Replace with the ID of your image element
+				const image = document.getElementById("image_3"); // Replace with the ID of your image element
 
 				Tesseract.recognize(
 					image,
