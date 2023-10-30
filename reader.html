@@ -31,6 +31,25 @@
 	<body>
 		<!--Javascript-->
 		<script>
+			function drawBoundingBoxes(image, words) {
+				const canvas = document.createElement("canvas");
+				canvas.width = image.width;
+				canvas.height = image.height;
+				const context = canvas.getContext("2d");
+				context.drawImage(image, 0, 0);
+
+				context.strokeStyle = "red";
+				context.lineWidth = 2;
+
+				words.forEach((word) => {
+					context.strokeRect(word.left, word.top, word.width, word.height);
+				});
+
+				// Replace the original image with the one containing bounding boxes
+				image.parentNode.replaceChild(canvas, image);
+				console.log("bounding boxes drawn");
+			}
+
 			document.addEventListener("DOMContentLoaded", () => {
 				//load images from folder
 				const gallery = document.querySelector(".gallery");
@@ -53,9 +72,10 @@
 						logger: (info) => console.log(info.progress, info.status), // Optional logger function
 					}
 				)
-					.then(({ data: { text } }) => {
+					.then(({ data: { text, words } }) => {
 						console.log("Recognized Text:", text);
 						// Do whatever you want with the recognized text
+						drawBoundingBoxes(image, words);
 					})
 					.catch((err) => {
 						console.error("Error:", err);
